@@ -18,6 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Setup tools
-        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@5397508744fc7d253434621a7e5d6d92d3dad94f
+        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@effba24a819315420804a19c5881f5043dc04a0f
       - name: Check GitHub actions
         run: git ls-files '.github/**.yaml' | xargs -t -I {} yarn run -B action-validator {}
