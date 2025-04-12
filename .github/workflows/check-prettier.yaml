@@ -13,6 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Setup yarn tools
-        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@42eae88b2378ccdf5959498cfaa1962137d3e7f2
+        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@4669ec8b8f7b3e120b630dd43880346bf518179b
       - name: Check prettier
         run: yarn run -B prettier --check .
