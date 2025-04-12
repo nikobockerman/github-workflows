@@ -7,6 +7,8 @@ on:
       - "yarn.lock"
   workflow_call:
   workflow_dispatch:
+permissions:
+  contents: read
 
 jobs:
   actions:
