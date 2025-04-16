@@ -15,6 +15,6 @@ jobs:
         with:
           # Ignore and ignore_pattern need to contain name of the job and it
           # isn't available in any context.
-          ignore: "Enforce all checks pass"
+          ignore: "Enforce all checks pass,CodeQL"
           ignore_pattern: ".*\\/ Enforce all checks pass$"
           token: ${{ secrets.GITHUB_TOKEN }}
