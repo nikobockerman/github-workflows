@@ -20,5 +20,7 @@ jobs:
     uses: ./.github/workflows/check-prettier.yaml
   check-renovate-config:
     uses: ./.github/workflows/check-renovate-config.yaml
+  check-shellcheck:
+    uses: ./.github/workflows/check-shellcheck.yaml
   check-yarn:
     uses: ./.github/workflows/check-yarn.yaml
