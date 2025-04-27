@@ -1,0 +1,27 @@
+name: Check - Shellcheck
+on:
+  pull_request:
+    paths:
+      - "**.sh"
+      - ".github/workflows/check-shellcheck.yaml"
+  workflow_call:
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Resolve shell scripts in repository
+        id: files
+        run: |
+          files=$(git ls-files | grep '\.sh$' | sed 's/.*/"&"/' | paste -sd' ' -)
+          echo "files=$files" >> $GITHUB_OUTPUT
+      - name: Validate shellcheck
+        if: steps.files.outputs.files != ''
+        run: |
+          shellcheck ${{ steps.files.outputs.files }}
