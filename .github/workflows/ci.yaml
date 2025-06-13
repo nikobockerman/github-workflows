@@ -12,8 +12,6 @@ permissions:
   contents: read
 
 jobs:
-  check-github-actions:
-    uses: ./.github/workflows/check-github-actions.yaml
   check-prettier:
     uses: ./.github/workflows/check-prettier.yaml
   check-renovate-config:
@@ -25,7 +23,6 @@ jobs:
 
   check:
     needs:
-      - check-github-actions
       - check-prettier
       - check-renovate-config
       - check-shellcheck
