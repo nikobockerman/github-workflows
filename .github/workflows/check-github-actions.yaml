@@ -1,10 +1,5 @@
 name: Check - GitHub actions
 on:
-  pull_request:
-    paths:
-      - ".github/workflows/**"
-      - "package.json"
-      - "yarn.lock"
   workflow_call:
   workflow_dispatch:
 permissions:
