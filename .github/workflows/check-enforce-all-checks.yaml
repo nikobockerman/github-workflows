@@ -1,6 +1,5 @@
 name: Check - Enforce all checks pass
 on:
-  pull_request:
   workflow_call:
 permissions:
   checks: read
