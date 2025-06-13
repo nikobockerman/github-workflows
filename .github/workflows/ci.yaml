@@ -12,10 +12,18 @@ permissions:
   contents: read
 
 jobs:
+  mise-cache:
+    uses: ./.github/workflows/mise-prepare-cache.yaml
   check-prettier:
-    uses: ./.github/workflows/check-prettier.yaml
+    needs: mise-cache
+    uses: ./.github/workflows/mise-task.yaml
+    with:
+      task: check:prettier
   check-renovate-config:
-    uses: ./.github/workflows/check-renovate-config.yaml
+    needs: mise-cache
+    uses: ./.github/workflows/mise-task.yaml
+    with:
+      task: check:renovateconfig
   check-yarn:
     uses: ./.github/workflows/check-yarn.yaml
 
