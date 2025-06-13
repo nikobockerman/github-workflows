@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Setup yarn tools
-        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@b0cbe0d42a0d648c237b92bc8478981223ed1133
+        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@8e2192ea1f13275dc40372b4581ebe09175d04a1
       - name: Check for duplicate dependencies
         run: yarn dedupe --check
 
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Setup project
-        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@b0cbe0d42a0d648c237b92bc8478981223ed1133
+        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@8e2192ea1f13275dc40372b4581ebe09175d04a1
       - name: Yarn install output check
         run: |
           errors=$(yarn install --json | jq 'select(.displayName != "YN0000")')
@@ -42,7 +42,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - name: Setup project
-        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@b0cbe0d42a0d648c237b92bc8478981223ed1133
+        uses: nikobockerman/github-actions/.github/actions/yarn-project-setup@8e2192ea1f13275dc40372b4581ebe09175d04a1
       - name: Validate peer requirements are defined
         run: |
           reqs=$(yarn explain peer-requirements)
