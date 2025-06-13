@@ -22,3 +22,17 @@ jobs:
     uses: ./.github/workflows/check-shellcheck.yaml
   check-yarn:
     uses: ./.github/workflows/check-yarn.yaml
+
+  check:
+    needs:
+      - check-github-actions
+      - check-prettier
+      - check-renovate-config
+      - check-shellcheck
+      - check-yarn
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # v1.2.2
+        with:
+          jobs: ${{ toJSON(needs) }}
