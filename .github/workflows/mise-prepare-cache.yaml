@@ -1,0 +1,22 @@
+name: Mise - prepare cache
+on:
+  workflow_call:
+    inputs:
+      runner:
+        description: runner to use
+        required: false
+        type: string
+        default: ubuntu-latest
+permissions:
+  contents: read
+
+jobs:
+  prepare-cache:
+    name: Prepare Mise cache
+    runs-on: ${{ inputs.runner }}
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Prepare cache
+        uses: nikobockerman/github-actions/.github/actions/mise-project-task@8e2192ea1f13275dc40372b4581ebe09175d04a1

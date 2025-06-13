@@ -12,21 +12,23 @@ permissions:
   contents: read
 
 jobs:
+  mise-cache:
+    uses: ./.github/workflows/mise-prepare-cache.yaml
   check-prettier:
-    uses: ./.github/workflows/check-prettier.yaml
+    needs: mise-cache
+    uses: ./.github/workflows/mise-task.yaml
+    with:
+      task: check:prettier
   check-renovate-config:
-    uses: ./.github/workflows/check-renovate-config.yaml
-  check-shellcheck:
-    uses: ./.github/workflows/check-shellcheck.yaml
-  check-yarn:
-    uses: ./.github/workflows/check-yarn.yaml
+    needs: mise-cache
+    uses: ./.github/workflows/mise-task.yaml
+    with:
+      task: check:renovateconfig
 
   check:
     needs:
       - check-prettier
       - check-renovate-config
-      - check-shellcheck
-      - check-yarn
     if: always()
     runs-on: ubuntu-latest
     steps:
