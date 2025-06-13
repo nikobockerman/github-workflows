@@ -1,10 +1,5 @@
 name: Check - Yarn and dependencies
 on:
-  pull_request:
-    paths:
-      - ".github/workflows/check-yarn.yaml"
-      - "package.json"
-      - "yarn.lock"
   workflow_call:
   workflow_dispatch:
 permissions:
