@@ -19,4 +19,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Prepare cache
-        uses: nikobockerman/github-actions/.github/actions/mise-project-task@b9a6fd556ec72ca69e4b44e1be1a288642a04710
+        uses: nikobockerman/github-actions/.github/actions/mise-project-task@f204e7207f7303c894a97b3ad437855085808476
