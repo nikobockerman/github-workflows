@@ -21,4 +21,4 @@ jobs:
       - name: Prepare cache
         uses: nikobockerman/github-actions/.github/actions/mise-project-setup@b12caab198959ecff4dac98df90e3af675e30570
         with:
-          cache_save: true
+          cache-mode: "prepare"
