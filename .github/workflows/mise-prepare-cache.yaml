@@ -18,6 +18,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          sparse-checkout: |
+            mise.toml
       - name: Prepare cache
         uses: nikobockerman/github-actions/.github/actions/mise-project-setup@b12caab198959ecff4dac98df90e3af675e30570
         with:
