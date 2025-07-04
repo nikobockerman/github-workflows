@@ -7,6 +7,14 @@ on:
         required: false
         type: string
         default: ubuntu-latest
+      mise-log-level:
+        description: "Log level for mise. Valid values: trace|debug|info|warn|error"
+        required: false
+        type: string
+        default: "info"
+env:
+  MISE_LOG_LEVEL: ${{ inputs.mise-log-level }}
+
 permissions:
   contents: read
 
