@@ -22,6 +22,6 @@ jobs:
           sparse-checkout: |
             mise.toml
       - name: Prepare cache
-        uses: nikobockerman/github-actions/.github/actions/mise-project-setup@56a42b0754816b1e5900bc260504df92ed1358cb
+        uses: nikobockerman/github-actions/.github/actions/mise-project-setup@56a42b0754816b1e5900bc260504df92ed1358cb # v1.0.0
         with:
           cache-mode: "prepare"
