@@ -1,4 +1,17 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["github>nikobockerman/renovate-config"],
+  semanticCommits: "enabled",
+  packageRules: [
+    {
+      description: "Commit scope to trigger releases for version updates in shared workflows",
+      matchFileNames: [
+        ".github/workflows/**",
+        "!.github/workflows/cd.yaml",
+        "!.github/workflows/ci.yaml",
+        "!.github/workflows/release.yaml",
+      ],
+      semanticCommitScope: "shared-workflows",
+    },
+  ],
 }
