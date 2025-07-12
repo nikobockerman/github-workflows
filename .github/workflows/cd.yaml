@@ -1,0 +1,25 @@
+name: CD
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Run every Monday at 00:30 UTC
+    - cron: "30 0 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yaml
+    permissions:
+      contents: read
+
+  release:
+    needs: ci
+    uses: ./.github/workflows/release.yaml
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
