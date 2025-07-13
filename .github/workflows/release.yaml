@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup mise
-        uses: nikobockerman/github-actions/.github/actions/mise-project-setup@a27798ad539068b543bb7757278b1a892b230b06 # v1.0.1
+        uses: nikobockerman/github-actions/.github/actions/mise-project-setup@2238f3b516df582078b8758b1f33c71a7f2a895a # v1.0.2
       - name: Setup node for caching
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
