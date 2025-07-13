@@ -6,10 +6,8 @@
     {
       description: "Commit scope to trigger releases for version updates in shared workflows",
       matchFileNames: [
-        ".github/workflows/**",
-        "!.github/workflows/cd.yaml",
-        "!.github/workflows/ci.yaml",
-        "!.github/workflows/release.yaml",
+        ".github/workflows/mise-prepare-cache.yaml",
+        ".github/workflows/mise-task.yaml",
       ],
       semanticCommitScope: "shared-workflows",
     },
