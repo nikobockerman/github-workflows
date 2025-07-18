@@ -4,12 +4,21 @@
   semanticCommits: "enabled",
   packageRules: [
     {
-      description: "Commit scope to trigger releases for version updates in shared workflows",
-      matchFileNames: [
-        ".github/workflows/mise-prepare-cache.yaml",
-        ".github/workflows/mise-task.yaml",
-      ],
+      description: "Commit scope to trigger releases for version updates for all workflows",
+      matchFileNames: [".github/workflows/**"],
       semanticCommitScope: "shared-workflows",
+    },
+    {
+      // Applied after the previous rule because matchFileNames doesn't work correctly when a commit contains both matched and unmatched files.
+      // This is a workaround which will hopefully set the scope back to "deps" if only the not shared workflows are changed.
+      // This workaround should work similarly - when a commit contains files not in this list, this rule should not impact the commit.
+      description: "Commit scope to not trigger releases for version updates for not shared workflows - override after previous",
+      matchFileNames: [
+        ".github/workflows/cd.yaml",
+        ".github/workflows/ci.yaml",
+        ".github/workflows/release.yaml",
+      ],
+      semanticCommitScope: "deps",
     },
   ],
 }
