@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Setup mise
-        uses: nikobockerman/github-actions/.github/actions/mise-project-setup@a9aaa1b31a8118c40c1f9cbd2cf7fa61393bd248 # v1.0.18
+        uses: nikobockerman/github-actions/.github/actions/mise-project-setup@40bd941d02c39e288f374b68cd140269258689ad # v1.0.19
       - name: Run task - ${{ inputs.task }}
         run: mise run ${{ inputs.task }}
         shell: bash
